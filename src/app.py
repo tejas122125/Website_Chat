@@ -14,3 +14,12 @@ with st.sidebar:
 
 if website_url is None or website_url == "":
     st.info("Please enter a website URL")
+
+else:
+    # session state
+    if "chat_history" not in st.session_state:
+        st.session_state.chat_history = [
+            AIMessage(content="Hello, I am a bot. How can I help you?"),
+        ]
+    if "vector_store" not in st.session_state:
+            

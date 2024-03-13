@@ -23,3 +23,11 @@ else:
         ]
     if "vector_store" not in st.session_state:
             st.session_state.vector_store = get_vectorstore_from_url(website_url)   
+    
+        # user input
+    user_query = st.chat_input("Type your message here...")
+    if user_query is not None and user_query != "":
+        response = get_response(user_query)
+        st.session_state.chat_history.append(HumanMessage(content=user_query))
+        st.session_state.chat_history.append(AIMessage(content=response))
+                

@@ -34,6 +34,9 @@ def get_context_retriever_chain(vector_store):
       ("user", "{input}"),
       ("user", "Given the above conversation, generate a search query to look up in order to get information relevant to the conversation")
     ])
+    retriever_chain = create_history_aware_retriever(llm, retriever, prompt)
+    
+    return retriever_chain
 
 
 

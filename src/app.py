@@ -19,6 +19,11 @@ def get_vectorstore_from_url(url):
       # split the document into chunks
     text_splitter = RecursiveCharacterTextSplitter()
     document_chunks = text_splitter.split_documents(document)
+        
+    # create a vectorstore from the chunks
+    vector_store = Chroma.from_documents(document_chunks, OpenAIEmbeddings())
+
+    return vector_store
 
 
 

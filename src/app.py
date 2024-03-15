@@ -25,7 +25,8 @@ def get_vectorstore_from_url(url):
 
     return vector_store
 
-
+def get_context_retriever_chain(vector_store):
+    llm = ChatOpenAI()
 
 
 

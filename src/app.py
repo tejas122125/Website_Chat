@@ -71,6 +71,12 @@ def get_response(user_input):
 st.set_page_config(page_title="Chat with websites", page_icon="🤖")
 st.title("Chat with websites")
 
+
+# sidebar
+with st.sidebar:
+    st.header("Settings")
+    website_url = st.text_input("Website URL")
+
 def get_response(user_input):
     retriever_chain = get_context_retriever_chain(st.session_state.vector_store)
     conversation_rag_chain = get_conversational_rag_chain(retriever_chain)
